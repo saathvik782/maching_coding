@@ -1,20 +1,23 @@
 #pragma once
 #include <mutex>
 #include <string>
+#include <map>
+#include "notifTemplate.hpp"
 #include "notification.hpp"
 
 class notificationService{
   static notificationService* ptr;
   static mutex mtx;
 
-  map<string,notifMessage> messageStore;
-  map<string,notification> notifStore;
+  map<string,notifTemplate*> templateStore;
+  map<string,notification*> notifStore;
 
   int message_id;
   int notif_id;
   
   notificationService(){
     message_id = 0;
+    notif_id = 0;
   }
 
 public:
@@ -29,12 +32,21 @@ public:
     return ptr;
   }
   
-  string createTemplate();
+  string createTemplate(
+  int current_price,
+  int market_volume,
+  int high,
+  int market_cap);
+
 
   vector<string> listTemplates();
   
-  void sendNotification(string notificationId,string emailid);    
+  void sendNotification(string templateId,string emailid);    
 
-  void deleteTemplate(string notificationId);
-}
+  void deleteTemplate(string templateId);
+
+  notifTemplate* getTemplate(string templateId);
+
+  vector<string> listAllSent();
+};
 

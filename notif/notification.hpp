@@ -11,16 +11,22 @@ enum NOTIF_STATUS{
 
 class notification{
   string email;
-  string messageId;
+  string templateId;
+  string notifId;
   NOTIF_STATUS status;
 public:
-  notification(string mail,string mid){
+  notification(string mail,string tid,string nid){
     email = mail;
-    messageId = mid;
-    status = NOTIF_STATUS.OUTSTANDING;
+    templateId = tid;
+    notifId = nid;
+    status = OUTSTANDING;
   }
+
+  string getEmail();
+  string gettemplateID();
+  string getID();
 
   void setStatus(NOTIF_STATUS s);
 
   NOTIF_STATUS getStatus();
-}
+};

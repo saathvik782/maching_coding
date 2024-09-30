@@ -2,7 +2,7 @@
 #include <string>
 
 using namespace std;
-class notifMessage {
+class notifTemplate {
   int current_price;
   int market_volume;
   int high;
@@ -10,7 +10,7 @@ class notifMessage {
   string notif_id;
 
 public:
-  notifMessage(int cp, int mv, int _high, int mc, int id){
+  notifTemplate(int cp, int mv, int _high, int mc, int id){
     current_price = cp;
     market_volume = mv;
     high = _high;
@@ -21,4 +21,4 @@ public:
   void getMessage();
 
   //setters and getters
-}
+};

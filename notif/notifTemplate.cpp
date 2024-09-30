@@ -1,11 +1,11 @@
-#include "notifMessage.hpp"
+#include "notifTemplate.hpp"
 #include <iostream>
 
 using namespace std;
 
 
-void notifMessage::getMessage(){
-  cout<<"id: "<<id<<"\n";
+void notifTemplate::getMessage(){
+  cout<<"id: "<<notif_id<<"\n";
   cout<<"Current price: "<<current_price<<"\n";
   cout<<"Market volume: "<<market_volume<<"\n";
   cout<<"High price: "<<high<<"\n";
